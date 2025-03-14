@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <style>
+        body {
+            font-family: "Doto", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 600;
+            font-style: normal;
+            color: black;
+            font-variation-settings: "ROND" 0;
+        }
+        .container {
+            width: 100%;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        #text {
+            display: flex;
+            flex-wrap: wrap;
+            transition: all 0.5s ease;
+        }
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        .centerelenment {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+        }
+        button{
+            background-color: rgb(141, 207, 231);
+            padding: 10px 20px;
+            border: 1px solid grey;
+            border-radius: 40px;
+            cursor: pointer;
+            font-family: "Doto", sans-serif;
+            font-weight: 900;
+            font-size: larger;
+
+        }
+        #text{
+            margin-left: 20px;
+        }
+        ::-webkit-scrollbar{
+            display: none;
+        }
+        button:hover{
+            background-color: transparent;
+            color: rgb(0, 0, 0);
+            /* font-style: italic; */
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            transition: box-shadow 0.5s ease;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            transform: scale(1.05);
+         
+           
+
+        }
+    </style>
+    <div id="container" class="centerelenment">
+        <button >click mee</button>
+        <div id="text"></div>
+    </div>
+    <script>
+        const button = document.querySelector('button');
+        button.addEventListener('click', () => {
+            button.style.transform = 'scale(1.2)';
+            button.style.transition = 'transform 0.5s ease';
+            document.documentElement.requestFullscreen();
+            const removeelement = document.querySelector('.centerelenment');
+            removeelement.classList.remove('centerelenment');
+            const text = document.querySelector('button');
+            text.remove();
+            const textbox = document.querySelector('#text');
+            for (let i = 0; i < 220; i++) {
+                setTimeout(() => {
+                    const p = document.createElement('p');
+                    p.innerHTML = 'Love You cutie 💕💕';
+                    p.classList.add('fade-in');
+                    textbox.appendChild(p);
+                }, i * 100); // Adjust the delay as needed
+            }
+        });
+    </script>
+</body>
+</html>
